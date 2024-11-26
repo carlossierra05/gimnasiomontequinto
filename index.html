@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" href="img/Gimnasio Montequinto.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Estilos personalizados -->
+    <link href="css/estilos.css" rel="stylesheet">
+
+
+    <title>Gestion GYM</title>
+
+</head>
+
+<body>
+
+
+    <!-- PARTE DE CARLOS-->
+
+    <div class="container">
+        <!-- BARRA DE NAVEGACION ALUMNO-->
+        <nav class="navbar navbar-expand-lg bg-gradient bg-light bg-gradient-directional">
+            <div class=" container-fluid">
+                <a class="navbar-brand">Gestión Alumnos <img src="img/Gimnasio Montequinto.png" width="25" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuAltaAlumno">Alta Alumno</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuListadoAlumnoParam">Listado Parametrizado</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuListadoAlumnos">Listar Alumnos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuBorrarAlumno">Borrar Alumno</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuBuscarAlumno">Buscar Alumno</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuModificarAlumno">Modificar Alumno</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Formularios -->
+        <div id="formularios">
+
+            <!--ALTA ALUMNO-->
+            <div id="divfrmAltaAlumno">
+                <form name="frmAltaAlumno" id="frmAltaAlumno" role="form" class="d-none">
+                    <div class="row mb-3">
+                        <h2>Alta de turismos</h2>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-2 control-label" for="dni">Dni</label>
+                        <div class="col-3">
+                            <input id="dni" name="dni" placeholder="DNI" class="form-control input-md" type="text">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-2 control-label" for="lstPlanes">Plan</label>
+                        <div class="col-3">
+                            <select class="form-select" name="lstPlanes" id="lstPlanes">
+                                <option value="">Seleccione un plan</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-2 control-label" for="nombre">Nombre</label>
+                        <div class="col-3">
+                            <input id="nombre" name="nombre" class="form-control input-md" type="text">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-2 control-label" for="edad">Edad</label>
+                        <div class="col-3">
+                            <input id="edad" name="edad" class="form-control input-md" type="text">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-2 control-label" for="fecha">Fecha de Nacimiento</label>
+                        <div class="col-3">
+                            <input id="fecha" name="fecha" class="form-control input-md" type="date">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2"></div>
+                        <div class="col-3">
+                            <input type="button" class="btn btn-primary" name="btnAltaAlumno" id="btnAltaAlumno"
+                                value="Aceptar">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+
+            <!--LISTADO PARAMETRIZADO-->
+            <div id="divfrmListadoParam">
+                <form name="frmListadoParam" id="frmListadoParam" role="form" class="d-none">
+                    <fieldset>
+                        <legend>Listado de turismos</legend>
+                        <div class="row mb-3">
+                            <label for="txtFechaInicio" class="form-label">Fecha de inicio</label>
+                            <div class="col-3">
+                                <input name="txtFechaInicio" id="txtFechaInicio" type="date" placeholder="Fecha Inicio"
+                                    class="form-control input-md" />
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="txtFechaFin" class="form-label">Fecha de fin</label>
+                            <div class="col-3">
+                                <input name="txtFechaFin" id="txtFechaFin" type="date" placeholder="Fecha Fin"
+                                    class="form-control input-md" />
+                            </div>
+                        </div>
+
+                        <input type="button" class="btn btn-primary" name="btnListadoParam" id="btnListadoParam"
+                            value="Aceptar">
+
+                    </fieldset>
+                </form>
+            </div>
+
+            <!--BORRAR ALUMNO-->
+            <div id="divfrmBorrarAlumno">
+                <form id="frmBorrarAlumno" class="d-none">
+                    <h2>Borrar Alumno</h2>
+                    <label for="txtDni">DNI del Alumno:</label>
+                    <input type="text" id="txtDni" name="txtDni" required>
+                    <button type="button" class="btn btn-primary" id="btnBorrarAlumno">Borrar Alumno</button>
+                </form>
+            </div>
+
+            <!--LISTAR TODOS LOS ALUMNO-->
+            <div id="divListadoAlumnos">
+                <form name="frmListadoAlumnos" id="frmListadoAlumnos" role="form" class="d-none">
+                    <div class="row mb-3">
+                        <h2>Listar Alumnos</h2>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-2"></div>
+                        <div class="col-3">
+                            <input type="button" class="btn btn-primary" name="btnListadoAlumnos" id="btnListadoAlumnos"
+                                value="Listar todos lo alumnos">
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- BUSCAR ALUMNO POR DNI-->
+            <div id="divfrmBuscarALumnoDni">
+                <form id="frmBuscarAlumno" class="d-none">
+                    <h2>Buscar Alumno</h2>
+                    <label for="txtDni">DNI del Alumno:</label>
+                    <input type="text" id="txtDni" name="txtDni" required>
+                    <button type="button" id="btnBuscarAlumno">Buscar Alumno</button>
+                    <div id="resultadoBusqueda"></div> <!-- Este es el contenedor para los resultados -->
+                </form>
+            </div>
+
+
+            <!-- MODIFICAR ALUMNO -->
+            <div id="divfrmModificarAlumno">
+                <form id="frmModificarAlumno" class="d-none">
+                    <h2>Modificar Alumno</h2>
+                    <label for="txtDni">DNI:</label>
+                    <input type="text" id="txtDni" name="dni" placeholder="Introduce el DNI" required>
+                    <button type="button" id="btnBuscarAlumnoModificar">Buscar Alumno</button>
+
+                    <div id="datosAlumnoModificar" class="d-none">
+                        <label for="txtNombre">Nombre:</label>
+                        <input type="text" id="txtNombre" name="nombre" placeholder="Introduce el nombre" required>
+
+                        <label for="lstPlanes">Plan:</label>
+                        <select id="lstPlanes" name="lstPlanes" class="form-select">
+                            <!-- Las opciones se llenarán dinámicamente -->
+                        </select>
+
+                        <label for="txtEdad">Edad:</label>
+                        <input type="number" id="txtEdad" name="edad" placeholder="Introduce la edad" required>
+
+                        <label for="txtFechaNacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" id="txtFechaNacimiento" name="fecha_nacimiento" required>
+
+                        <button type="button" id="btnModificarAlumno">Modificar Alumno</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- PARTE DE ALMUDENA-->
+
+    <div class="container">
+
+        <!-- BARRA DE NAVEGACION CLASE-->
+
+        <nav class="navbar navbar-expand-lg bg-gradient bg-light bg-gradient-directional">
+            <div class=" container-fluid">
+                <a class="navbar-brand">Gestión Clases <img src="img/Gimnasio Montequinto.png" width="25" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuAltaClase">Alta de Clase</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuListadoClase">Listado de Clases</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Formularios -->
+
+
+    </div>
+
+    <!-- PARTE DE SERGIO-->
+
+    <div class="container">
+
+        <!-- BARRA DE NAVEGACION ENTRENADOR-->
+
+        <nav class="navbar navbar-expand-lg bg-gradient bg-light bg-gradient-directional">
+            <div class=" container-fluid">
+                <a class="navbar-brand">Gestión Entrenadores <img src="img/Gimnasio Montequinto.png" width="25" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuAltaEntrenador">Alta de Entrenador</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="mnuListadoEntrenador">Listado de Entrenadores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Formularios -->
+
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <!-- Scripts propios -->
+    <script src="js/ajax.js"></script>
+    <script src="js/objetos.js"></script>
+    <script src="js/codigo.js"></script>
+
+</body>
+
+</html>
